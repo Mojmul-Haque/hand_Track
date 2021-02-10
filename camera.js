@@ -21,40 +21,39 @@ const context = canvas.getContext('2d')
 
 let model;
 
-handTrack.startVideo(video)
-    .then(status => {
-        if (status) {
-            navigator.getUserMedia({ video: {} }, stream => {
-                    video.srcObject = stream;
-                    // runDetection() // when it out of comment then uncomment line of 30;
-                    setInterval(runDetection, 1000)
-                },
-                err => (console.log(err))
+handTrack.startVideo(video).then(status => {
+    if (status) {
+        navigator.getUserMedia({ video: {} },
+            stream => {
+                video.srcObject = stream;
+                runDetection() // when it out of comment then uncomment line of 30;
+                    // setInterval(runDetection, 1000)
+            },
+            err => (displayErorMsg(err))
 
-            );
-        }
-    });
+        );
+    }
+});
 
 
 
 function runDetection() {
-    model.detect(video)
-        .then(predictions => {
-            console.log(predictions);
-            if (predictions.length > 0) {
-                audio.play()
-            }
-            requestAnimationFrame(runDetection)
+    model.detect(video).then(predictions => {
+        console.log(predictions);
+        if (predictions.length > 0) {
+            audio.play()
+        }
+        requestAnimationFrame(runDetection)
 
-            // model.renderPredictions(predictions, canvas, context, video)
-        })
+        // model.renderPredictions(predictions, canvas, context, video)
+    })
 }
 
-handTrack.load(model).then(lmodel => {
+handTrack.load(modelParams).then(lmodel => {
     model = lmodel
 
-})
+});
 
-// const displayErorMsg = () => {
-//     erorMsg.innerHTML = "<h3>Sorry!!!! Something went wrong. Please try again letter.</h3>"
-// }
+const displayErorMsg = () => {
+    erorMsg.innerHTML = "<h3>Sorry!!!! Something went wrong. Please try again letter.</h3>"
+}
