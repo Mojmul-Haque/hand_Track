@@ -55,6 +55,6 @@ handTrack.load(model).then(lmodel => {
 
 })
 
-const displayErorMsg = () => {
-    erorMsg.innerHTML = "<h3>Sorry!!!! Something went wrong. Please try again letter.</h3>"
-}
+// const displayErorMsg = () => {
+//     erorMsg.innerHTML = "<h3>Sorry!!!! Something went wrong. Please try again letter.</h3>"
+// }
