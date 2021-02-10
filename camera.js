@@ -46,7 +46,7 @@ function runDetection() {
             }
             // requestAnimationFrame(runDetection)
 
-            // model.renderPredictions(predictions, canvas, context, video)
+            model.renderPredictions(predictions, canvas, context, video)
         })
 }
 
