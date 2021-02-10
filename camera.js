@@ -44,9 +44,9 @@ function runDetection() {
             if (predictions.length > 0) {
                 audio.play()
             }
-            // requestAnimationFrame(runDetection)
+            requestAnimationFrame(runDetection)
 
-            model.renderPredictions(predictions, canvas, context, video)
+            // model.renderPredictions(predictions, canvas, context, video)
         })
 }
 
