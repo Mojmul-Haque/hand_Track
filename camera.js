@@ -26,8 +26,8 @@ handTrack.startVideo(video)
         if (status) {
             navigator.getUserMedia({ video: {} }, stream => {
                     video.srcObject = stream;
-                    runDetection() // when it out of comment then uncomment line of 30;
-                        // setInterval(runDetection, 1000)
+                    // runDetection() // when it out of comment then uncomment line of 30;
+                    setInterval(runDetection, 1000)
                 },
                 err => (console.log(err))
 
@@ -44,7 +44,7 @@ function runDetection() {
             if (predictions.length > 0) {
                 audio.play()
             }
-            requestAnimationFrame(runDetection)
+            // requestAnimationFrame(runDetection)
 
             // model.renderPredictions(predictions, canvas, context, video)
         })
